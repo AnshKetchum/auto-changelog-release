@@ -12,7 +12,7 @@ assert GITHUB_API_URL, "Missing environment variable GITHUB_API_URL"
 assert GITHUB_REPOSITORY, "Missing environment variable GITHUB_REPOSITORY"
 
 # Git Enterprise API endpoint for creating a release
-GIT_ENTERPRISE_API_URL = f"{GITHUB_API_URL}/api/v3/repos/{GITHUB_REPOSITORY}/releases"
+GIT_ENTERPRISE_API_URL = f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/releases"
 
 def extract_changelog_info(changelog_content):
     # Define regex patterns for tag, description, and latest sections
@@ -62,6 +62,8 @@ def create_git_enterprise_release(changelog_filename):
         "draft": False,
         "prerelease": False,
     }
+
+    print('Pinging', GIT_ENTERPRISE_API_URL)
 
     response = requests.post(
         GIT_ENTERPRISE_API_URL,
