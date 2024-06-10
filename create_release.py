@@ -81,7 +81,7 @@ Change the variables below to run.
 
 """
 # Call the function to create the Git Enterprise release
-filename = os.getenv('CHANGELOG.md')
+filename = os.getenv('CHANGELOG_PATH_FILE', 'CHANGELOG.md')
 run_release = True
 
 # CODE LOGIC BELOW - NO NEED TO MODIFY
