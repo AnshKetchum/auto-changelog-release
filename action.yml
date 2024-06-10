@@ -1,0 +1,20 @@
+name: 'Automated Releases'
+description: 'Automate Release Publication based on a CHANGELOG.md file and a VERSION.txt'
+inputs:
+  CHANGELOG_PATH_FILE:  # id of input
+    description: 'Path to the changelog.md'
+    required: true
+    default: 'CHANGELOG.md'
+  VERSION_TXT_FILE:  # id of input
+    description: 'Path to the VERSION.txt file'
+    required: true
+    default: 'VERSION.txt'
+runs:
+  using: "composite"
+  steps:
+    - name: Install Requirements
+      run: pip install -r requirements.txt
+
+    - name: Run Python script
+      run: python create_release.py
+    
