@@ -10,8 +10,6 @@ on:
 using: "composite"
 steps:
   - uses: actions/checkout@v4
-    with:
-      repository: AnshKetchum/auto-changelog-release
 
   - name: Install Requirements
     run: pip install -r requirements.txt
