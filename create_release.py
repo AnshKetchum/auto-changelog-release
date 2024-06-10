@@ -81,9 +81,7 @@ Change the variables below to run.
 
 """
 # Call the function to create the Git Enterprise release
-owner = "anchaura"
-repo = "repo-experience"
-filename = 'CHANGELOG.md'
+filename = os.getenv('CHANGELOG.md')
 run_release = True
 
 # CODE LOGIC BELOW - NO NEED TO MODIFY

@@ -9,12 +9,20 @@ inputs:
     description: 'Path to the VERSION.txt file'
     required: true
     default: 'VERSION.txt'
+  GIT_PERSONAL_ACCESS_TOKEN:
+    description: 'Personal access token to access Github API'
+    required: true
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v4
+
     - name: Install Requirements
       run: pip install -r requirements.txt
 
     - name: Run Python script
       run: python create_release.py
-    
+      env: 
+        CHANGELOG_PATH_FILE: ${{ inputs.CHANGELOG_PATH_FILE }}
+        GIT_PERSONAL_ACCESS_TOKEN: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
+      
