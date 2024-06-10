@@ -3,6 +3,10 @@ description: 'Automate Release Publication based on a CHANGELOG.md file and a VE
 icon: anchor
 color: blue
 inputs:
+  GITHUB_API_URL: 
+    description: 'Path to Github API'
+    required: true
+    default: 'https://api.github.com'
   CHANGELOG_PATH_FILE:  # id of input
     description: 'Path to the changelog.md'
     required: true
