@@ -1,5 +1,7 @@
 name: 'Automated Releases'
 description: 'Automate Release Publication based on a CHANGELOG.md file and a VERSION.txt'
+icon: anchor
+color: blue
 inputs:
   CHANGELOG_PATH_FILE:  # id of input
     description: 'Path to the changelog.md'
