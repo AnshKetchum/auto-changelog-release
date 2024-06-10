@@ -20,9 +20,11 @@ runs:
     - uses: actions/checkout@v4
 
     - name: Install Requirements
+      shell: bash
       run: pip install -r requirements.txt
 
     - name: Run Python script
+      shell: bash
       run: python create_release.py
       env: 
         CHANGELOG_PATH_FILE: ${{ inputs.CHANGELOG_PATH_FILE }}

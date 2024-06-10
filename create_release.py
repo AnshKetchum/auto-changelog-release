@@ -34,14 +34,14 @@ def extract_changelog_info(changelog_content):
         return None, None, None
 
 # Create a Git Enterprise release
-def create_git_enterprise_release(changelog_file):
+def create_git_enterprise_release(changelog_filename):
 
     # Git Enterprise personal access token (replace with your own token)
     GIT_ENTERPRISE_TOKEN = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN", None)
     assert GIT_ENTERPRISE_TOKEN, "Failed to retrieve Github Access Credentials. Make sure to have a .env file with a variable named GITHUB_PERSONAL_ACCESS_TOKEN with a personal access token from Github."
 
     # Read the content from the CHANGELOG.md file (replace with actual file path)
-    with open("CHANGELOG.md", "r") as changelog_file:
+    with open(changelog_filename, "r") as changelog_file:
         changelog_content = changelog_file.read()
 
     # Extract tag, description, and latest sections
