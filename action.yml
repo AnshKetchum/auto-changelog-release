@@ -15,13 +15,6 @@ inputs:
     description: 'Personal access token to access Github API'
     required: true
 runs:
-  on:
-    pull_request:
-      branches:
-        - main
-    push:
-      branches:
-        - main
   using: "composite"
   steps:
     - uses: actions/checkout@v4

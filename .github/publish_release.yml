@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    paths:
+      - ${{ inputs.VERSION_TXT_FILE }}
+    branches:
+      - main
+using: "composite"
+steps:
+  - uses: actions/checkout@v4
+
+  - name: Install Requirements
+    run: pip install -r requirements.txt
+
+  - name: Run Python script
+    run: python create_release.py
+    env: 
+      CHANGELOG_PATH_FILE: ${{ inputs.CHANGELOG_PATH_FILE }}
+      GIT_PERSONAL_ACCESS_TOKEN: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
+    
