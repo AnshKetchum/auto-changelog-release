@@ -2,6 +2,7 @@
 
 A continuous experiment testing various features the devops team can use with their daily workflow.
 
+https://github.com/marketplace/actions/automated-releases
 
 ## Automatic Release: 
 
