@@ -7,7 +7,8 @@ https://github.com/marketplace/actions/automated-releases
 ## Automatic Release: 
 
 ### Github Actions Setup
-The sample Github actions below watches for changes on the VERSION.txt and triggers a release when `VERSION.txt` is changed.
+The sample Github actions below watches for changes on the VERSION.txt and triggers a release when `VERSION.txt` is changed. To use this, make sure to create a Github Personal Access Token (PAT),
+and add it as a Repository Secret named `REPOSITORY_TOKEN`.
 
 ```yaml
 # Create a GitHub Actions workflow YAML file (e.g., main.yml) in the .github/workflows directory
