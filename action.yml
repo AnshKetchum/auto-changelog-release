@@ -32,7 +32,7 @@ runs:
 
     - name: Run Python script
       shell: bash
-      run: python create_release.py
+      run: python3 create_release.py
       env: 
         CHANGELOG_PATH_FILE: ${{ inputs.CHANGELOG_PATH_FILE }}
         VERSION_PATH_FILE: ${{ inputs.VERSION_PATH_FILE }}
