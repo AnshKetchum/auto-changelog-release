@@ -24,7 +24,7 @@ runs:
     - uses: actions/checkout@v4
       with:
         repository: devops/auto-releases
-        branch: main
+        ref: main
 
     - name: Install Requirements
       shell: bash
