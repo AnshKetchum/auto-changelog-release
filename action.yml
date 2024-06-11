@@ -24,6 +24,7 @@ runs:
     - uses: actions/checkout@v4
       with:
         repository: devops/auto-releases
+        token: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
 
     - name: Install Requirements
       shell: bash
