@@ -22,9 +22,6 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v4
-      with:
-        repository: devops/auto-releases
-        ref: main
 
     - name: Install Requirements
       shell: bash
