@@ -34,7 +34,7 @@ def extract_changelog_info(changelog_content):
         return None, None, None
 
 # Create a Git Enterprise release
-def create_git_enterprise_release(changelog_filename):
+def create_git_enterprise_release(changelog_filename, version_filename):
 
     # Git Enterprise personal access token (replace with your own token)
     GIT_ENTERPRISE_TOKEN = os.getenv("GIT_PERSONAL_ACCESS_TOKEN", None)
@@ -44,9 +44,16 @@ def create_git_enterprise_release(changelog_filename):
     with open(changelog_filename, "r") as changelog_file:
         changelog_content = changelog_file.read()
 
+    with open(version_filename, "r") as version_file:
+        version = version_file.read().strip()
+    
+    print('Version:', version)
+
     # Extract tag, description, and latest sections
     tag_name, description, latest = extract_changelog_info(changelog_content)
-
+    tag_name = tag_name.strip()
+    
+    assert version == tag_name, f"Version in {version_filename} does not match the tag in the changelog file. Version: {version}, Tag: {tag_name}"
     release_name = f"Release {tag_name}"  # Replace with the desired release name
     release_body = f"Release notes:\n{description}"  # Replace with your release notes
 
@@ -83,10 +90,11 @@ Change the variables below to run.
 
 """
 # Call the function to create the Git Enterprise release
-filename = os.getenv('CHANGELOG_PATH_FILE', 'CHANGELOG.md')
+changelog_filename = os.getenv('CHANGELOG_PATH_FILE', 'CHANGELOG.md')
+version_filename  = os.getenv('VERSION_PATH_FILE', 'VERSION.txt')
 run_release = True
 
 # CODE LOGIC BELOW - NO NEED TO MODIFY
 # Automatically create the github release
 if run_release:
-    create_git_enterprise_release(filename)
+    create_git_enterprise_release(changelog_filename, version_filename)
