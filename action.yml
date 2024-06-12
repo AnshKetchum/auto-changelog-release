@@ -25,6 +25,8 @@ runs:
       with:
         repository: devops/auto-releases
         token: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
+        path: autorelease
+
 
     - name: Install Requirements
       shell: bash
@@ -41,7 +43,7 @@ runs:
       shell: bash
       run: python3 create_release.py
       env: 
-        CHANGELOG_PATH_FILE: ${{ inputs.CHANGELOG_PATH_FILE }}
-        VERSION_PATH_FILE: ${{ inputs.VERSION_PATH_FILE }}
+        CHANGELOG_PATH_FILE: ../${{ inputs.CHANGELOG_PATH_FILE }}
+        VERSION_PATH_FILE: ../${{ inputs.VERSION_PATH_FILE }}
         GIT_PERSONAL_ACCESS_TOKEN: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
         GITHUB_API_URL: ${{ inputs.GITHUB_API_URL }}
