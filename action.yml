@@ -33,6 +33,10 @@ runs:
     - name: View files
       shell: bash
       run: ls
+    - name: View Directory
+      shell: bash
+      run: pwd
+
     - name: Run Python script
       shell: bash
       run: python3 create_release.py
