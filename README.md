@@ -6,7 +6,43 @@ https://github.com/marketplace/actions/automated-releases
 
 ## Automatic Release: 
 
-### Setup 
+### Github Actions Setup
+The sample Github actions below watches for changes on the VERSION.txt and triggers a release when `VERSION.txt` is changed. To use this, make sure to create a Github Personal Access Token (PAT),
+and add it as a Repository Secret named `REPOSITORY_TOKEN`.
+
+```yaml
+# Create a GitHub Actions workflow YAML file (e.g., main.yml) in the .github/workflows directory
+# This workflow will run only on the main branch
+
+name: Automatically Publish Release
+
+on:
+  pull_request:
+    paths:
+      - 'VERSION.txt'
+    branches:
+      - main
+  push:
+    paths:
+      - 'VERSION.txt'
+    branches:
+      - main
+
+jobs:
+  set-secret-and-run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Automated Releases
+        uses: AnshKetchum/auto-changelog-release@alpha-1
+        with: 
+          GIT_PERSONAL_ACCESS_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
+```
+
+### Daily Setup 
 
 1. Maintain a `CHANGELOG.md` file
 
