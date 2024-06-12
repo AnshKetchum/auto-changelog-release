@@ -26,18 +26,19 @@ runs:
         repository: devops/auto-releases
         token: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
         path: autorelease
-
-
-    - name: Install Requirements
-      shell: bash
-      run: pip install -r requirements.txt
-
+        
     - name: View files
       shell: bash
       run: ls
     - name: View Directory
       shell: bash
       run: pwd
+
+
+    - name: Install Requirements
+      shell: bash
+      run: pip install -r requirements.txt
+
 
     - name: Run Python script
       shell: bash
