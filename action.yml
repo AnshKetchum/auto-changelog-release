@@ -30,6 +30,9 @@ runs:
       shell: bash
       run: pip install -r requirements.txt
 
+    - name: View files
+      shell: bash
+      run: ls
     - name: Run Python script
       shell: bash
       run: python3 create_release.py
