@@ -26,7 +26,7 @@ runs:
         repository: devops/auto-releases
         token: ${{ inputs.GIT_PERSONAL_ACCESS_TOKEN }} 
         path: autorelease
-        
+
     - name: View files
       shell: bash
       run: ls
@@ -37,12 +37,12 @@ runs:
 
     - name: Install Requirements
       shell: bash
-      run: pip install -r requirements.txt
+      run: pip install -r autorelease/requirements.txt
 
 
     - name: Run Python script
       shell: bash
-      run: python3 create_release.py
+      run: python3 autorelease/create_release.py
       env: 
         CHANGELOG_PATH_FILE: ../${{ inputs.CHANGELOG_PATH_FILE }}
         VERSION_PATH_FILE: ../${{ inputs.VERSION_PATH_FILE }}
